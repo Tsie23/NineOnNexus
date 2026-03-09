@@ -162,29 +162,6 @@
     </div>
   </footer>
 
-  <script>
-    function submitForm() {
-      const form = document.querySelector('.contact-form');
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      }).then(response => response.json()).then(result => {
-        if (result.success) {
-          document.getElementById('formSuccess').style.display = 'block';
-          form.reset();
-        } else {
-          alert('There was an error sending your message. Please try again.');
-        }
-      }).catch(error => {
-        alert('There was an error sending your message. Please try again.');
-      });
-    }
-  </script>
   <script src="main.js"></script>
 </body>
 </html>
