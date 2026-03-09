@@ -119,4 +119,4 @@ NineOnNexus/
 - Location: Pretoria North, Gauteng, South Africa
 
 ## Visit the Site
-https://nine-on-nexus-kdt8u7wu2-kebaabetswes-projects.vercel.app/ 
+[nine-on-nexus.vercel.app ](https://nine-on-nexus.vercel.app/)
