@@ -95,7 +95,7 @@
 
       <div class="contact-form-wrap">
       <h3>Send Us a Message</h3>
-        <form class="contact-form" action="https://hooks.zapier.com/hooks/catch/23164025/uxhv2au/" method="POST">
+        <form class="contact-form" action="/api/contact" method="POST">
           <div class="form-row two-col">
             <div class="form-group">
               <label>First Name <span>*</span></label>
@@ -166,14 +166,15 @@
     function submitForm() {
       const form = document.querySelector('.contact-form');
       const formData = new FormData(form);
-      fetch(form.action, {
+      const data = Object.fromEntries(formData.entries());
+      fetch('/api/contact', {
         method: 'POST',
-        body: formData,
         headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }).then(response => response.json()).then(result => {
+        if (result.success) {
           document.getElementById('formSuccess').style.display = 'block';
           form.reset();
         } else {
