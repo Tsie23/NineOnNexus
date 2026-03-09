@@ -94,9 +94,7 @@ a  { text-decoration: none; color: inherit; }
 }
 .btn-outline:hover { background: var(--gold); color: var(--black); }
 
-/* =============================================
-   NAVBAR
-   ============================================= */
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -107,6 +105,7 @@ a  { text-decoration: none; color: inherit; }
 .navbar.scrolled {
   background: rgba(10,10,10,0.97);
   box-shadow: 0 1px 0 var(--border);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -394,9 +393,7 @@ a  { text-decoration: none; color: inherit; }
 .quote-band blockquote::before { content: '\201C'; color: var(--gold); margin-right: 6px; }
 .quote-band blockquote::after  { content: '\201D'; color: var(--gold); margin-left: 6px; }
 
-/* =============================================
-   PORTFOLIO TEASER
-   ============================================= */
+/* PORTFOLIO TEASER 
 .portfolio-teaser {
   max-width: 1300px;
   margin: 100px auto;
@@ -439,12 +436,10 @@ a  { text-decoration: none; color: inherit; }
 
 .pt-footer {
   margin-top: 50px;
-  text-align: center;
-}
+  text-align: center; 
+}*/
 
-/* =============================================
-   CTA BAND
-   ============================================= */
+/* CTA BAND */
 .cta-band {
   background: var(--charcoal);
   border-top: 1px solid var(--border);
@@ -464,9 +459,7 @@ a  { text-decoration: none; color: inherit; }
   letter-spacing: 0.05em;
 }
 
-/* =============================================
-   PAGE HERO (inner pages)
-   ============================================= */
+/* PAGE HERO (inner pages) */
 .page-hero {
   position: relative;
   height: 380px;
@@ -497,9 +490,7 @@ a  { text-decoration: none; color: inherit; }
 }
 .page-hero-content h1 em { font-style: italic; color: var(--gold); }
 
-/* =============================================
-   ABOUT PAGE
-   ============================================= */
+/* ABOUT PAGE */
 .about-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -561,9 +552,7 @@ a  { text-decoration: none; color: inherit; }
   line-height: 1.8;
 }
 
-/* =============================================
-   PORTFOLIO PAGE
-   ============================================= */
+/* PORTFOLIO PAGE */
 .portfolio-page {
   max-width: 1300px;
   margin: 80px auto;
@@ -631,9 +620,7 @@ a  { text-decoration: none; color: inherit; }
 .pm-item:hover .pm-overlay { opacity: 1; }
 .pm-item.hidden { display: none; }
 
-/* =============================================
-   CONTACT PAGE
-   ============================================= */
+/* CONTACT PAGE */
 .contact-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -733,9 +720,7 @@ a  { text-decoration: none; color: inherit; }
 }
 .form-success.show { display: block; }
 
-/* =============================================
-   FOOTER
-   ============================================= */
+/* FOOTER */
 .site-footer {
   background: var(--off-black);
   border-top: 1px solid var(--border);
