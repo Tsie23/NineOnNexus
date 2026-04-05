@@ -32,27 +32,65 @@ filterBtns.forEach(btn => {
 });
 
 // Contact Form Submit
-function submitForm() {
-  const form = document.querySelector('.contact-form');
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
-  fetch('/api/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  }).then(response => response.json()).then(result => {
-    if (result.success) {
-      document.getElementById('formSuccess').style.display = 'block';
-      form.reset();
-    } else {
-      alert('There was an error sending your message. Please try again.');
+const form = document.getElementById('form');
+const submitBtn = form.querySelector('button[type="submit"]');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    formData.append("access_key", "0933a592-dc95-4520-9572-cbd8e7a8d40c");
+
+    const originalText = submitBtn.textContent;
+
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Success! Your message has been sent.");
+            form.reset();
+        } else {
+            alert("Error: " + data.message);
+        }
+
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
     }
-  }).catch(error => {
-    alert('There was an error sending your message. Please try again.');
-  });
-}
+});
+
+
+// function submitForm() {
+//   const form = document.querySelector('.contact-form');
+//   const formData = new FormData(form);
+//   const data = Object.fromEntries(formData.entries());
+//   fetch('/api/contact', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   }).then(response => response.json()).then(result => {
+//     if (result.success) {
+//       document.getElementById('formSuccess').style.display = 'block';
+//       form.reset();
+//     } else {
+//       alert('There was an error sending your message. Please try again.');
+//     }
+//   }).catch(error => {
+//     alert('There was an error sending your message. Please try again.');
+//   });
+// }
 
 // Scroll Reveal
 const reveals = document.querySelectorAll(
