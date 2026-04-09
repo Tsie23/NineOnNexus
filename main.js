@@ -112,3 +112,12 @@ reveals.forEach(el => {
   el.style.transform = 'translateY(28px)';
   observer.observe(el);
 });
+
+const whatsappButton = document.createElement('a');
+whatsappButton.className = 'whatsapp-float';
+whatsappButton.href = 'https://wa.me/27754372161?text=Hello%20Nine%20on%20Nexus';
+whatsappButton.target = '_blank';
+whatsappButton.rel = 'noopener';
+whatsappButton.setAttribute('aria-label', 'Chat on WhatsApp');
+whatsappButton.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
+document.body.appendChild(whatsappButton);
