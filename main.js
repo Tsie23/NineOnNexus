@@ -33,41 +33,43 @@ filterBtns.forEach(btn => {
 
 // Contact Form Submit
 const form = document.getElementById('form');
-const submitBtn = form.querySelector('button[type="submit"]');
+if (form) {
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    const formData = new FormData(form);
-    formData.append("access_key", "0933a592-dc95-4520-9572-cbd8e7a8d40c");
+      const formData = new FormData(form);
+      formData.append("access_key", "0933a592-dc95-4520-9572-cbd8e7a8d40c");
 
-    const originalText = submitBtn.textContent;
+      const originalText = submitBtn.textContent;
 
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
 
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
+      try {
+          const response = await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              body: formData
+          });
 
-        const data = await response.json();
+          const data = await response.json();
 
-        if (response.ok) {
-            alert("Success! Your message has been sent.");
-            form.reset();
-        } else {
-            alert("Error: " + data.message);
-        }
+          if (response.ok) {
+              alert("Success! Your message has been sent.");
+              form.reset();
+          } else {
+              alert("Error: " + data.message);
+          }
 
-    } catch (error) {
-        alert("Something went wrong. Please try again.");
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
+      } catch (error) {
+          alert("Something went wrong. Please try again.");
+      } finally {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+      }
+  });
+}
 
 
 // function submitForm() {
@@ -113,11 +115,15 @@ reveals.forEach(el => {
   observer.observe(el);
 });
 
-const whatsappButton = document.createElement('a');
-whatsappButton.className = 'whatsapp-float';
-whatsappButton.href = 'https://wa.me/27754372161?text=Hello%20Nine%20on%20Nexus';
-whatsappButton.target = '_blank';
-whatsappButton.rel = 'noopener';
-whatsappButton.setAttribute('aria-label', 'Chat on WhatsApp');
-whatsappButton.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
-document.body.appendChild(whatsappButton);
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('WhatsApp button code running');
+  const whatsappButton = document.createElement('a');
+  whatsappButton.className = 'whatsapp-float';
+  whatsappButton.href = 'https://wa.me/27754372161?text=Hello%20Nine%20on%20Nexus';
+  whatsappButton.target = '_blank';
+  whatsappButton.rel = 'noopener';
+  whatsappButton.setAttribute('aria-label', 'Chat on WhatsApp');
+  whatsappButton.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
+  document.body.appendChild(whatsappButton);
+  console.log('WhatsApp button added to body');
+});
