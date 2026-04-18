@@ -591,9 +591,7 @@ a  { text-decoration: none; color: inherit; }
 .pm-item:hover .pm-overlay { opacity: 1; }
 .pm-item.hidden { display: none; }
 
-/* =============================================
-   CONTACT PAGE
-   ============================================= */
+/* CONTACT PAGE */
 .contact-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
